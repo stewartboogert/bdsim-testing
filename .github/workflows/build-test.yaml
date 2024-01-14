@@ -18,9 +18,10 @@ jobs:
       image: sboogert/alma9-g4.11.2
 
     steps:
-      - name: Check for dockerenv file
-        run: |
-          (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+
+      - name: Get number of CPU cores
+        uses: SimenB/github-actions-cpu-cores@v2
+        id: cpu-cores
 
       - name: Build bdsim
         run: |          
@@ -30,5 +31,8 @@ jobs:
           mkdir ../bdsim-build
           cd ../bdsim-build
           cmake ../bdsim
-          make 
+          make -j${{ steps.cpu-cores.outputs.count }}
           
+      - name: Test bdsim
+        run: |
+          ctest -j${{ steps.cpu-cores.outputs.count }}
