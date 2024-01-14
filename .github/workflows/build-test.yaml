@@ -21,7 +21,9 @@ jobs:
       - name: Check for dockerenv file
         run: |
           (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
-          git clone git@bitbucket.org:jairhul/bdsim.git
+
+      - name: Build bdsim     
+          git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
           git checkout develop
           mkdir ../bdsim-build
