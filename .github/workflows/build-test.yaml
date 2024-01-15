@@ -24,7 +24,8 @@ jobs:
         id: cpu-cores
 
       - name: Build bdsim
-        run: |          
+        run: |   
+          source /tmp/root/bin/thisroot.sh
           git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
           git checkout develop
@@ -36,5 +37,5 @@ jobs:
       - name: Test bdsim
         run: |
           cd bdsim-build
-          source ~/.bashrc
+          source /tmp/root/bin/thisroot.sh
           ctest -j${{ steps.cpu-cores.outputs.count }}
