@@ -122,7 +122,7 @@ jobs:
           cd ../bdsim-build
           export PATH=$PATH:/tmp/root/bin/
           source /usr/local/bin/geant4.sh
-          DEBIAN_FRONTEND="noninteractive" apt -y install xxhash-devel
+          apt -y install xxhash-devel
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
 
