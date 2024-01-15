@@ -10,6 +10,36 @@ on:
 
 jobs:
   # This workflow contains a single job called "build"
+  bdsim_master_alma9_g4_11_2:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    container:
+      image: sboogert/alma9-g4.11.2
+
+    steps:
+
+      - name: Get number of CPU cores
+        uses: SimenB/github-actions-cpu-cores@v2
+        id: cpu-cores
+
+      - name: Build bdsim
+        run: |   
+          git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
+          cd bdsim
+          git checkout master
+          mkdir ../bdsim-build
+          cd ../bdsim-build
+          cmake ../bdsim
+          make -j${{ steps.cpu-cores.outputs.count }}
+
+      - name: Test bdsim
+        run: |
+          cd bdsim-build
+          export PATH=$PATH:/tmp/root/bin/
+          ctest -v -j${{ steps.cpu-cores.outputs.count }}
+
+
   bdsim_develop_alma9_g4_11_2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -38,6 +68,7 @@ jobs:
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
+
 
   bdsim_develop_alma9_g4_10_7:
     # The type of runner that the job will run on
