@@ -44,6 +44,7 @@ jobs:
 
 
 
+
   bdsim_develop_centos8_g4_11_2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -64,6 +65,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
+          export PATH=$PATH:/tmp/root/bin/
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
 
@@ -72,7 +74,6 @@ jobs:
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
-
 
 
   bdsim_develop_alma9_g4_11_2:
@@ -95,6 +96,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
+          export PATH=$PATH:/tmp/root/bin/
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
           
@@ -126,6 +128,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
+          export PATH=$PATH:/tmp/root/bin/
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
 
@@ -157,6 +160,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
+          export PATH=$PATH:/tmp/root/bin/          
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
 
