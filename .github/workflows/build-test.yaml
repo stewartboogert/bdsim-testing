@@ -26,7 +26,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
-          source scl_source enable devtoolset-7 &&\
+          source scl_source enable devtoolset-7
           cmake ../bdsim
           make -j4
 
@@ -122,7 +122,6 @@ jobs:
           mkdir ../bdsim-build
           cd ../bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          source /usr/local/bin/geant4.sh
           apt -y install xxhash-devel
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
@@ -131,6 +130,7 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
+          source /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
 
@@ -163,6 +163,6 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          source /usr/local/bin/geant4.sh	  
+          source /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
