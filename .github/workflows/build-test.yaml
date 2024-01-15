@@ -65,6 +65,7 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
+          source /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
 
