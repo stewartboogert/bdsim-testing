@@ -36,7 +36,7 @@ jobs:
       - name: Test bdsim
         run: |
           cd bdsim-build
-          source /tmp/root/bin/thisroot.sh
+          export PATH=$PATH:/tmp/root/bin/
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
   bdsim_develop_alma9_g4_10_7:
@@ -65,5 +65,5 @@ jobs:
       - name: Test bdsim
         run: |
           cd bdsim-build
-          source /tmp/root/bin/thisroot.sh
+          export PATH=$PATH:/tmp/root/bin/
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
