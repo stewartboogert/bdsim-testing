@@ -1,0 +1,7 @@
+bison
+cgal
+libpng
+qt@5
+qt@6
+xerces-c
+vtk
