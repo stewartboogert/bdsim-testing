@@ -36,4 +36,5 @@ jobs:
       - name: Test bdsim
         run: |
           cd bdsim-build
+          source ~/.bashrc
           ctest -j${{ steps.cpu-cores.outputs.count }}
