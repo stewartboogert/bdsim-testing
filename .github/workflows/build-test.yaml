@@ -122,7 +122,7 @@ jobs:
           mkdir ../bdsim-build
           cd ../bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          apt -y install xxhash-devel
+          apt -y install libxxhash-dev
           cmake ../bdsim
           make -j${{ steps.cpu-cores.outputs.count }}
 
