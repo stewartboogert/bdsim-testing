@@ -26,6 +26,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
+          source scl_source enable devtoolset-7 &&\
           cmake ../bdsim
           make -j4
 
@@ -94,6 +95,7 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
+          source /usr/local/bin/geant4.sh
           ctest -R LaserWire -VV -j${{ steps.cpu-cores.outputs.count }}
 
 
