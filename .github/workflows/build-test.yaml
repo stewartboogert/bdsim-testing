@@ -94,7 +94,7 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          ctest -v -j${{ steps.cpu-cores.outputs.count }}
+          ctest -R LaserWire -VV -j${{ steps.cpu-cores.outputs.count }}
 
 
 
