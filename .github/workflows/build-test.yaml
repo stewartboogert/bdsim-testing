@@ -26,7 +26,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
-          source scl_source enable devtoolset-7
+          source scl_source enable devtoolset-9
           cmake ../bdsim
           make -j4
 
