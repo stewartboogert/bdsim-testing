@@ -131,7 +131,7 @@ jobs:
 
       - name: Test bdsim
         run: |
-          /bin/bash
+          echo $0
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
           source /usr/local/bin/geant4.sh
