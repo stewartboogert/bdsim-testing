@@ -101,7 +101,6 @@ jobs:
           source /usr/local/bin/geant4.sh
           ctest -j${{ steps.cpu-cores.outputs.count }}
 #         ctest -R LaserWire -VV -j${{ steps.cpu-cores.outputs.count }}
-
   bdsim_develop_ubuntu20_g4_11_2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -131,7 +130,7 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          source /usr/local/bin/geant4.sh
+          . /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
 
@@ -164,6 +163,6 @@ jobs:
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          source /usr/local/bin/geant4.sh
+          . /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
