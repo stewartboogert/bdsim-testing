@@ -134,7 +134,7 @@ jobs:
           echo $0
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          . /usr/local/bin/geant4.sh
+          source /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
 
@@ -165,9 +165,8 @@ jobs:
 
       - name: Test bdsim
         run: |
-          /bin/bash
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
-          . /usr/local/bin/geant4.sh
+          source /usr/local/bin/geant4.sh
           ctest -v -j${{ steps.cpu-cores.outputs.count }}
 
