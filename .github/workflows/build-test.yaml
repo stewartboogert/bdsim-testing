@@ -32,6 +32,7 @@ jobs:
           make -j4
 
       - name: Test bdsim
+        shell: bash
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
