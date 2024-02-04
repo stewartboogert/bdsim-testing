@@ -31,6 +31,7 @@ jobs:
           scl enable devtoolset-11 'cmake ../bdsim'
           make -j4
 
+
       - name: Test bdsim
         shell: bash
         run: |
