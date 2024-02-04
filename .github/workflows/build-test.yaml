@@ -27,8 +27,7 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
-          scl enable devtoolset-9
-          cmake ../bdsim
+          scl enable devtoolset-9 'cmake ../bdsim'
           make -j4
 
       - name: Test bdsim
