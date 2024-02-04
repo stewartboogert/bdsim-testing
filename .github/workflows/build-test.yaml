@@ -20,14 +20,14 @@ jobs:
     steps:
 
       - name: Build bdsim
+        shell: bash
         run: |   
           git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
-          ls
-          . scl_source enable devtoolset-9
+          source scl_source enable devtoolset-9
           cmake ../bdsim
           make -j4
 
@@ -85,6 +85,7 @@ jobs:
         id: cpu-cores
 
       - name: Build bdsim
+        shell: bash
         run: |   
           git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
@@ -96,12 +97,14 @@ jobs:
           make -j${{ steps.cpu-cores.outputs.count }}
           
       - name: Test bdsim
+        shell: bash
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
           source /usr/local/bin/geant4.sh
           ctest -j${{ steps.cpu-cores.outputs.count }}
 #         ctest -R LaserWire -VV -j${{ steps.cpu-cores.outputs.count }}
+
   bdsim_develop_ubuntu20_g4_11_2:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -151,6 +154,7 @@ jobs:
         id: cpu-cores
 
       - name: Build bdsim
+        shell: bash
         run: |   
           git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
@@ -162,6 +166,7 @@ jobs:
           make -j${{ steps.cpu-cores.outputs.count }}
 
       - name: Test bdsim
+        shell: bash
         run: |
           cd bdsim-build
           export PATH=$PATH:/tmp/root/bin/
