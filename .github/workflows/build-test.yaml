@@ -119,6 +119,7 @@ jobs:
         id: cpu-cores
 
       - name: Build bdsim
+        shell: bash
         run: |   
           git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
@@ -131,6 +132,7 @@ jobs:
           make -j${{ steps.cpu-cores.outputs.count }}
 
       - name: Test bdsim
+        shell: bash
         run: |
           echo $0
           cd bdsim-build
