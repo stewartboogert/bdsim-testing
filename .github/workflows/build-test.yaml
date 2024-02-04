@@ -24,10 +24,9 @@ jobs:
           git clone https://stewartboogert@bitbucket.org/jairhul/bdsim.git
           cd bdsim
           git checkout develop
-          cd ../
-          mkdir bdsim-build
-          cd bdsim-build
-          source scl_source enable devtoolset-9
+          mkdir ../bdsim-build
+          cd ../bdsim-build
+          . scl_source enable devtoolset-9
           cmake ../bdsim
           make -j4
 
