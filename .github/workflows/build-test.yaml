@@ -27,10 +27,8 @@ jobs:
           git checkout develop
           mkdir ../bdsim-build
           cd ../bdsim-build
-          yum -y install devtoolset-11
           scl enable devtoolset-11 'cmake ../bdsim'
           make -j4
-
 
       - name: Test bdsim
         shell: bash
